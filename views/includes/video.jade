@@ -1,0 +1,13 @@
+div.pannel-video
+    h2.pannel-article-head  视频区
+    div.panner-video-body.clearfix
+        ul
+            each item in hotLists.videoList
+                li.video-item
+                    a.video-link(href='./videos/'+item.vid target="_blank")
+                    div.video-cover
+                        div.mask
+                        img(src=item.cover_url)
+                    div.video-info
+                        h4.video-title= item.title
+                        h4.video-dmk-num 弹幕 #{item.dmk_num}

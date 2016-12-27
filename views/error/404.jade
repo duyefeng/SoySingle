@@ -1,0 +1,32 @@
+doctype html
+html
+    include ../includes/head
+    style.
+        .container {
+            margin: 40px auto;
+            width: 460px;
+        }
+        #pic {
+            width: 100%;
+            height: 420px;
+            background-image: url('/i/404.jpg');
+            background-size: 100%;
+        }
+        #content {
+            text-align: center;
+        }
+        #content a,#content p {
+            color: #666;
+            font-size: 16px;
+            font-family: 'microsoft yahei';
+        }
+        #content a:hover {
+            color: #008000;
+            text-decoration: underline;
+        }
+    body
+        div.container 
+            div#pic
+            div#content 
+                p #{ message }
+                a(href='/') 返回首页

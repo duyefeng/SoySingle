@@ -1,0 +1,21 @@
+div.banner.banner-down 
+    img(src='/i/logo.png' width='40')
+    span.banner-title 米粥网
+    div.banner-search
+        i.iconfont.icon-search
+        input(placeholder='输入搜索内容' class='active')
+    div.banner-form
+        - if (!name)
+            a.login(href='/login') 登录
+                i.gadget
+            a.register(href='/register') 注册
+                i.gadget
+        - else 
+            div.avatar 
+                div.avatar-inner(style='background-image:url('+avatar_src+')')
+            div.user-info #{name}
+                div.user-info-extend
+                    a.set(href='/user_center/avatar' target='_blank') 个人中心
+                    a.history(href='http://www.baidu.com') 历史记录
+                    a.quit 退出
+

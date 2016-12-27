@@ -1,0 +1,14 @@
+doctype html
+html
+    include includes/head
+    link(rel="stylesheet" href="/c/article.css")
+    script(src="/j/article.js")
+    body 
+        include includes/banner
+        div.container 
+            include articles/body
+    script.
+        var oPageConfig = {
+            articleId : #{aid},
+            username : "#{name}"
+        };

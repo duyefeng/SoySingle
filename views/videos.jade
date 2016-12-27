@@ -1,0 +1,17 @@
+doctype html
+html
+    include includes/head
+    link(rel="stylesheet" href="/c/video.css")    
+    body 
+        include includes/banner
+        div.container 
+            include videos/body
+    script(src="/socket.io/socket.io.js")
+    script(src="/lib/danmakuLoader.js")
+    script(src="/j/video.js")
+    script#data(type="text/json") { dmklist : !{JSON.stringify(danmaku)} }
+    script.
+        var oPageConfig = {
+            videoId : #{vid},
+            username : "#{name}"
+        };

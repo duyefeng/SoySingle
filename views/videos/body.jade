@@ -1,0 +1,61 @@
+-   var list = danmaku;
+-   var m,s,t;
+-   for (var i=0;i<list.length;i++) {
+-       list[i].originTime = list[i].time;
+-       m = parseInt(list[i].time/60);
+-       s = list[i].time%60;
+-       if (m===0) {
+-           m = "00"
+-       } else if (m<10) {
+-           m = "0" + m;
+-       } else {
+-           m = "" + m;
+-       }
+-       if (s===0) {
+-           s = "00"
+-       } else if (s<10) {
+-           s = "0" + s;
+-       } else {
+-           s = "" + s;
+-       }
+-       list[i].time = m + ':' + s;
+-   }
+div.video 
+    div.clearfix
+        div#player-video-danmaku         
+            video(controls='' name="media" id='player')   
+                source(src= src type="video/mp4")    
+        div#danmaku-list
+            div.danmaku-info
+                div
+                    span.online_num 在线人数:
+                    span#js_online_num
+                div
+                    span.danmaku_num 弹幕总数:
+                    span#js_danmaku_num #{danmaku.length}
+            div
+                h4
+                    span.time 时间
+                    span.text 弹幕内容
+                    span.send-time 发送时间
+            div.list
+                ul.scrollbar
+                    each item in list
+                        li(data-time= item.originTime) 
+                            span.time #{item.time}
+                            span.text #{item.content} 
+                            span.send-time #{item.created_at}
+    //- div      
+    //-     button#shiled 屏蔽弹幕      
+    //-     button#unshiled 取消屏蔽 
+    //-     input(placeholder='弹幕透明度设置' style='margin-left:20px')#opacity  
+    //-     button#opacity-btn 确认弹幕透明度 
+    if  name
+        div.danmuSend
+            input(placeholder='在此输入弹幕' style='margin-right:20px')#danmu
+            button#danmu-btn 发送> 
+    else
+        div.danmuSend
+            input(placeholder='游客请先登录' style='margin-right:20px' disabled)#danmu
+            button#danmu-btn.disabled 发送> 
+    

@@ -1,0 +1,100 @@
+.article {
+    margin: 0 auto;
+    width: 980px;
+}
+.article-body {
+    position: relative;
+    width: 100%;
+    height: 1470px;
+}
+.article-body .text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 10px 40px;
+    font-size: 15px;
+    color: #333;
+    box-shadow: 0 0 2px #008000;
+}
+.article-body .bg {
+    width: 100%;
+    height: 100%;   
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+    background-size: 100%;
+}
+.article-body .love {
+    background-image: url('./../i/article-pics/love.jpg');
+}
+.article-body .fairy {
+    background-image: url('./../i/article-pics/fairy.jpg');
+}
+.article-body .content p {    
+    text-indent:2em;
+} 
+.comments-body {
+    font-size: 14px;
+}
+.article-headline h4 {
+    margin-top: 20px;
+    padding-left: 40px;
+    line-height: 30px;
+    font-size: 24px;
+    color: #e4353c;
+}
+.article-headline h5 {
+    margin: 10px 0;
+    padding-left: 40px;
+    line-height: 20px;
+    font-size: 14px;
+    color: #333;
+}
+.article-headline h5 span {
+    margin-right: 20px;
+}
+.comments-headline {
+    margin: 20px 0;
+    padding-left: 18px;
+    line-height: 60px;
+    font-family: 'microsoft yahei';
+    font-size: 20px;
+    color: #333;
+}
+.comments-body .pannel {
+    padding: 20px;
+    box-shadow: 0 0 2px #008000;
+    margin-bottom: 10px;
+}
+.comment-info  {
+    margin-top: 20px;
+    border-top: 1px solid #999;
+}
+.write-area {
+    margin-top: 100px;
+}
+.write-area button {
+    margin-top: 20px;
+    cursor: pointer;
+}
+.write-area .textarea {
+    width: 100%;
+    height: 200px;  
+    padding: 5px 10px;
+    line-height: 22px;
+    border: 1px solid #d6dff3;
+    border-radius: 2px;
+    font: 14px/34px 'simsun';
+    color: #333;
+    box-shadow: inset 0 2px 5px rgba(241,244,250,.8);
+}
+.comment-username {
+    float: right;
+    font-family: 'microsoft yahei';
+    font-size: 14px;
+    color: #e4353c;
+}

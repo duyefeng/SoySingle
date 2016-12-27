@@ -1,0 +1,277 @@
+body {
+    padding-bottom: 100px;
+}
+.container {
+    padding-top: 60px;
+}
+.banner {
+    height: 54px;
+    padding: 5px 20px;
+    margin: 0;
+    width: 100%;
+    z-index: 100;
+    background: #fff;
+    border-bottom: 1px solid #ebebeb;
+    position: absolute;    
+    top: 0;
+    font-size: 12px;
+}
+.banner-down {
+    box-shadow: 0 0 5px #888;
+}
+.banner>img {
+    float: left;
+}
+.banner-title {
+    float: left;
+    margin-left: 20px;
+    font: 24px/40px 'microsoft yahei';
+    color: #008000;
+}
+.banner-search {
+    padding-top: 8px;
+    height: 34px;
+    margin-left: 30px;
+    float: left;
+    position: relative;
+}
+.banner-search input {
+    font-size: 12px;
+    border-radius: 4px;
+    color: #666;
+    padding-left: 24px;
+}
+.banner-search input.active {
+    height: 26px;
+    border: 1px solid #008000;
+}
+.banner-search .iconfont {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+.banner-form {
+    padding-top: 5px;
+    float: right;
+    position: relative;
+}
+.banner-form .avatar {
+    position: absolute;
+    top: 1px;
+    left: -50px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 3px #008000;
+    overflow: hidden;
+    cursor: pointer;
+}
+.banner-form .avatar .avatar-inner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(./../i/login-logo.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.banner-form a {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    background: #fff;
+    width: 80px;
+    text-align: center;
+    border-radius: 4px;
+    color: #666;
+    font: 14px/28px 'microsoft yahei';
+    border: 1px solid #008000;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.banner-form p {
+    font-size: 18px;
+}
+.banner-form p span {
+    color: #e4353c;
+}
+.gadget {
+    top: 0;
+    left: -2px;
+    position: absolute;
+    background: #87CEFA;
+    width: 2px;
+    height: 100%;
+    transition: transform .8s cubic-bezier(.35,0,.25,1);
+}
+.banner-form .login:hover .gadget {
+    transform: translateX(80px);
+    -ms-transform: translateX(80px);     
+    -moz-transform: translateX(80px);    
+    -webkit-transform: translateX(80px); 
+    -o-transform: translateX(80px);
+}
+.banner-form .register:hover .gadget {
+    transform: translateX(80px);
+    -ms-transform: translateX(80px);     
+    -moz-transform: translateX(80px);    
+    -webkit-transform: translateX(80px); 
+    -o-transform: translateX(80px);
+}
+.user-info {
+    position: relative;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 6px ;
+    background: #008000;
+    cursor: pointer;
+    padding: 0 10px;
+    min-width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.user-info-extend {
+    display: none;
+    position: absolute;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    background: #008000;
+    border-radius: 0 0 6px 6px;
+}
+.quit {
+    border-radius: 0 0 6px 6px;
+}
+.user-info-extend a {
+    display: block;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    background: #008000;
+}
+.user-info-extend a:hover {
+    background: #4395ff;
+}
+.user-info-active {
+    border-radius: 6px 6px 0 0;
+}
+.body-container {
+    padding: 0 20px;
+    font-size: 14px;
+    height: 100%;
+}
+/**** 首页文章区 ***/
+.pannel-article {
+    padding-top: 60px;
+    height: 100%;
+}
+.pannel-article .article-list {
+    width: 32%;
+    float: left;
+    border: 1px solid #ccc;
+    padding: 4px 0;
+    margin-right: 20px;
+}
+.pannel-article .article-list .article-header {
+    padding-left: 20px;
+    font-family: 'microsoft yahei';
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #666;
+}
+.pannel-article .article-list li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    color: #008000;
+}
+.pannel-article .article-list li a .author {
+    float: right;
+}
+.pannel-article .article-list li:hover a {
+    background: #333;
+    color: #fff;
+}
+.pannel-article .article-list:nth-child(3n) {
+    margin-right: 0;
+}
+.pannel-article .load-more {
+    display: block;
+    border-top: 1px solid #666;
+    padding-right: 20px;
+    width: 100%;
+    line-height: 24px;
+    color: #e4353c;
+    text-align: right;
+}
+/**** 首页视频区 ***/
+.video-item {
+    width: 192px;
+    height: 170px;
+    overflow: hidden;
+    position: relative;
+    float: left;
+    cursor: pointer;
+    margin-right: 20px;
+}
+a.video-link {
+    position: absolute;
+    z-index: 200;
+    width: 192px;
+    height: 170px;
+}
+.video-item .video-cover {
+    border: 1px solid #ccc;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 192px;
+    height: 120px;
+}
+.video-item .video-cover img {
+    width: 192px;
+    height: 120px;
+}
+.video-item .mask {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    position: absolute;    
+    background: rgba(0,0,0,0.2);
+    transition: opacity .3s ease-in-out;
+}
+.video-title {
+    font-size: 12px;
+    height: 16px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    font-family: 'microsoft yahei';
+    line-height: 14px;
+    margin: 10px 6px 0;
+    transition: color .3s ease-in-out;
+}
+.video-item:hover .mask {
+    opacity: 1;
+}
+.video-item:hover .video-title {
+    height: 32px;
+    color: #008000;
+    white-space:normal;
+}
+.video-item .video-dmk-num  {
+    padding: 0 6px;
+    font-size: 12px;
+    color: #e4353c;
+    white-space: nowrap;
+    font-family: 'microsoft yahei';
+    transition: transform .5s linear;
+}
+.video-item:hover .video-dmk-num {
+    transform: translateY(50px);
+}

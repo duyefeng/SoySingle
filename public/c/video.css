@@ -1,0 +1,218 @@
+.video {
+    padding: 40px;
+}
+#player-video-danmaku {
+    width: 860px;
+    height: 566px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    float: left;
+    -webkit-user-select:none; 
+    -moz-user-select:none; 
+    -ms-user-select:none; 
+    user-select:none;
+}
+.input[disabled] {
+  border-color: #e2e2e2;
+  background: #eff0f1;
+  cursor: not-allowed;
+  color: #ccc;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.danmaku {
+    position: absolute;
+    white-space:nowrap;  
+    z-index: 100;
+    left: 870px;
+    font-family: SimHei, "Microsoft JhengHei", Arial, Helvetica, sans-serif; 
+    font-weight: bold; 
+    line-height: 1.125;
+    text-shadow: rgb(0, 0, 0) 1px 0px 1px, rgb(0, 0, 0) 0px 1px 1px, rgb(0, 0, 0) 0px -1px 1px, rgb(0, 0, 0) -1px 0px 1px;
+}
+#player {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    background: #353535;
+    width: 860px;
+    height: 566px;
+}
+#danmaku-list {
+    float: left;
+    width: 380px;
+    height: 566px;
+    padding: 0 0 10px;
+    box-shadow: 0 0 4px #008000 inset;
+    border-radius: 4px;
+    margin-left: 20px;
+}
+#danmaku-list div.list {
+    padding-right: 2px;
+}
+#danmaku-list h4 {
+    line-height: 24px;
+    padding-left: 20px;
+    font-family: 'Microsoft Yahei';
+}
+#danmaku-list ul {
+    height: 480px;
+    width: 100%;
+    overflow-y: hidden;
+    padding-left: 20px;
+}
+#danmaku-list ul:hover {
+    overflow-y: auto;
+}
+#danmaku-list .time {
+    width: 60px;
+}
+#danmaku-list .text {
+    width: 160px;
+}
+#danmaku-list .send-time {
+    width: 120px;
+}
+#danmaku-list h4 span {
+    float: left;
+    font-size: 12px;
+    color: #99a2aa;
+    height: 32px;
+    border: 0;
+    padding: 0 8px;
+    line-height: 32px;
+    cursor: pointer;
+    display: inline-block;
+    box-sizing: border-box;
+    position: relative;
+}
+#danmaku-list ul li {
+    line-height: 24px;
+    float: left;
+    border-radius: 2px;
+}
+#danmaku-list ul li span {
+    float: left;
+    font-size: 12px;
+    color: #666;
+    height: 32px;
+    border: 0;
+    padding: 0 8px;
+    line-height: 32px;
+    cursor: pointer;
+    display: inline-block;
+    box-sizing: border-box;
+    position: relative;
+}
+#danmaku-list ul li .text {
+    overflow: hidden;
+    text-overflow:ellipsis;
+    -o-text-overflow:ellipsis;
+    white-space:nowrap;
+}
+#danmaku-list ul li:hover {
+    background: #eaeff9;
+}
+#danmaku-list ul li.selected {
+    background: #008000;
+}
+#danmaku-list ul li.selected span {
+    color: #fff;
+}
+.danmaku-info {
+    padding:8px 0 6px;
+    border-bottom: 1px solid #ccc;
+}
+#danmaku-list .danmaku-info>div {
+    display: inline-block;
+    padding-left: 20px;
+    width: 50%;
+    font-family: 'Microsoft Yahei';
+    font-size: 14px;
+}
+#danmaku-list .online_num,#danmaku-list .danmaku_num {
+    margin-right: 10px;
+}
+.danmuSend {
+    position: relative;
+    width: 860px;
+}
+#danmu {
+    width: 862px;
+    height: 38px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    z-index: 12;
+    padding: 0 10px;
+    font-size: 12px;
+    color: #6b6b6b;
+    height: 38px;
+    line-height: 38px;
+    padding-left: 20px;
+}
+#danmu-btn {
+    font-family: 'Microsoft Yahei';
+    position: absolute;
+    z-index: 13;
+    top: 4px;
+    right: 15px;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 10px 0 14px;
+    width: 64px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 4px;
+    background-color: #00a1d6;
+    vertical-align: middle;
+    border: 1px solid #00a1d6;
+    user-select: none;
+    overflow: visible;
+    transition: all .4s linear;
+}
+#danmu-btn.disabled {
+    background: #ccc;
+    border: 1px solid #ccc;
+}
+#danmu-btn.disabled:hover {
+    background: #ccc;
+    border: 1px solid #ccc;
+}
+#danmu-btn:hover {
+    background-color: #008000;
+    border: 1px solid #008000;
+}
+#danmaku-list .online_num {
+    color: #008000;
+}
+#danmaku-list .danmaku_num {
+    color: #4395ff;
+}
+.scrollbar:hover {
+    overflow-y: auto;
+}
+/*定义滚动条宽高及背景，宽高分别对应横竖滚动条的尺寸*/
+.scrollbar::-webkit-scrollbar{
+    width: 6px;
+    height: 6px;
+    cursor: pointer;
+    background-color: #f5f5f5;
+}
+/*定义滚动条的轨道，内阴影及圆角*/
+.scrollbar::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(127,129,168,.3);
+    border-radius: 10px;
+    background-color: #f5f5f5;
+}
+/*定义滑块，内阴影及圆角*/
+.scrollbar::-webkit-scrollbar-thumb{
+    /*width: 10px;*/
+    height: 20px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(127,129,168,.3);
+    background-color: rgba(0,128,0,.9);
+}

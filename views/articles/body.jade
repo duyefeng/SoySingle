@@ -1,0 +1,23 @@
+div.article
+    div.article-headline
+        h4 #{title}
+        h5 
+            span #{author}
+            span #{time} 
+    div.article-body
+        div.bg(class= type)
+        div.text
+            div.content
+                !{ articleBody }
+    div.comments-body
+        h4.comments-headline 评论区
+        div.show-area
+            each item in comments
+                div.pannel 
+                    div !{item.content}
+                    div.comment-info 
+                        span.comment-date #{item.created_at} 
+                        span.comment-username #{item.name}
+        div.write-area
+            div.textarea(placeholder="输入..." contenteditable="true" spellcheck="false")
+            button 提交评论

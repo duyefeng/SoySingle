@@ -1,0 +1,33 @@
+div.content
+    div.user-center 
+        div.user-center-item 
+            h2 完善资料
+            a.first-user-center-item(href='/user_center/avatar').avatar 
+                i.icon.iconfont &#xe609;
+                span 我的头像
+            a(href='/user_center/info').info 
+                i.icon.iconfont &#xe60c;
+                span 我的信息
+            a(href='/user_center/temeplate').temeplate  
+                i.icon.iconfont &#xe60c;
+                span 我的模板
+            a.last-user-center-item(href='/user_center/message').message 
+                i.icon.iconfont &#xe60d;
+                span 我的私信
+        div.user-center-pannel
+            case pannel
+                when "avatar"
+                    p this is avatar area
+                when "info"
+                    p this is info area
+                when "temeplate"
+                    include temeplate
+                when "message"
+                    p this is message area
+                default
+                    p hello world
+    div#canvas-container
+        div#canvas-lastBg
+        div#canvas-bg
+        canvas#canvas
+

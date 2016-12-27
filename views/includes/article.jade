@@ -1,0 +1,43 @@
+-   var Love = [];
+-   var Fairy = [];
+-   var Suspense = [];
+-   var arr = hotLists.articleList;
+-   var len = arr.length;
+-   for (var i=0;i<len;i++) {
+-      if (arr[i].type=="love") {
+-           Love.push(arr[i]);
+-      } else if (arr[i].type=="fairy") {
+-           Fairy.push(arr[i]);
+-      } else if (arr[i].type=="suspense") {
+-           Suspense.push(arr[i]);
+-      }       
+-   }
+div.pannel-article
+    h2.pannel-article-head  文章区
+    div.panner-article-body.clearfix
+        div.article-list 
+            p.article-header 言情专区
+            ul
+                each item in Love
+                    li
+                        a(href=item.src target="_blank")= item.title
+                            span.author= item.author
+            a.load-more(href='http://www.baidu.com')  More
+        div.article-list 
+            p.article-header 童话专区
+            ul
+                each item in Fairy
+                    li
+                        a(href=item.src target="_blank")= item.title
+                            span.author= item.author
+            a.load-more(href='http://www.baidu.com')  More
+        div.article-list 
+            p.article-header 悬疑专区
+            ul
+                each item in Suspense
+                    li
+                        a(href=item.src target="_blank")= item.title
+                            span.author= item.author
+            a.load-more(href='http://www.baidu.com')  More
+        
+                    

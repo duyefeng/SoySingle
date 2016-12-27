@@ -1,0 +1,36 @@
+{
+  "name": "soyweb",
+  "version": "1.0.0",
+  "description": "a little web",
+  "main": "index.js",
+  "scripts": {
+    "test" : "echo \"Error: no test specified\" && exit 1",
+    "web" : "nodemon index.js"  
+  },
+  "repository": {
+    "type" : "git",
+    "url"  : "git+https://github.com/duyefeng/SoySingle.git"
+  },
+  "author": "dyff",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/duyefeng/SoySingle/issues"
+  },
+  "homepage": "https://github.com/duyefeng/SoySingle#readme",
+  "dependencies" : {
+    "cookie-parser": "^1.4.3",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jade": "^1.11.0",
+    "async": "^2.0.1",
+    "multiparty": "^4.1.2",
+    "images": "^3.0.0",
+    "mysql": "^2.11.1",
+    "socket.io": "^1.7.2",
+    "node-schedule": "^1.2.0",
+    "multer": "^1.2.0"
+  },
+  "devDependencies": {
+
+  }
+}

@@ -1,0 +1,44 @@
+div.login-area
+    div.login-container
+        - if (login)
+            div.login-in-pic
+            div.login-body
+                div.passport
+                    span 账号
+                    input(placeholder='请输入注册使用邮箱地址/手机号')
+                div.password 
+                    span 密码
+                    input(placeholder='密码' type='password')
+                div.login-submit
+                    a.submit.js_login 登录
+                    a.reset 重填
+        - else
+            div.login-pic
+                a.avatar-mask
+                div#inner-avatar
+                    a#inner-bg
+            div.login-avatar
+                div.login-avatar-select
+                    div(id='preview')
+                input(name="spicFile" type="file" id="avatarFile" style="display:none;" accept="image/jpg,image/jpeg,image/png,image/gif")
+                label.login-avatar-btn(for="avatarFile" name="spicFile" title="请上传头像" id='js_avatar') 上传头像
+                p *图片大小像素为450*200或等比图片(最低尺寸450*200)
+            div.login-body
+                div.username 
+                    span 昵称
+                    input(placeholder='昵称(例如黑米粥...)')
+                div.password 
+                    span 密码
+                    input(placeholder='密码' type='password')
+                div.repassword 
+                    span 确认密码
+                    input(placeholder='确认密码' type='password')
+                div.phone
+                    span 手机号
+                    input(placeholder='请输入手机号')
+                div.mail 
+                    span 邮箱
+                    input(placeholder='请输入邮箱地址')
+                div.login-submit
+                    a.submit.js_register 注册
+                    a.reset 重填
