@@ -1,19 +1,26 @@
 doctype html
 html
     include includes/head   
-    link(rel="stylesheet" href="/skin/"+"#{temeplate}"+".css")
+    //- link(rel="stylesheet" href="/skin/"+"#{template}"+".css")
     link(rel="stylesheet" href="/c/userCenter.css")
     body 
         include includes/banner
         include userCenter/body
-    script(src='/j/canvas_bubble.js')
-    script(src='/j/userCenter/'+"#{pannel}"+'.js')
     script.
         var oPageConfig = {
             pannelName : "#{pannel}",
             username : "#{name}",
-            temp : "#{temeplate}"
+            temp : "#{template}",
+            theme : "#{theme}",
+            effect : 1
         };
         $('.'+oPageConfig.pannelName).addClass('active');
+    script(src='/j/canvas_bubble.js')
+    script(src='/j/canvas_hanabi.js')
+    script(src='/j/canvas_snow.js')
+    script(src='/j/canvas_halloween.js')
+    script(src='/j/userCenter/userCenter.js')
+    script(src='/j/userCenter/'+"#{pannel}"+'.js')
+
 
     

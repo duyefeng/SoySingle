@@ -1,0 +1,16 @@
+[
+{
+    "host" : "127.0.0.1",      
+    "user" : "root",             
+    "password" : "root",      
+    "port" : "3306",                  
+    "database": "canvas"
+},
+{
+    "host" : "135.132.123.34",      
+    "user" : "root",             
+    "password" : "root",      
+    "port" : "3306",                  
+    "database": "test"
+}
+]

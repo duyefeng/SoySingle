@@ -11,6 +11,7 @@ var server = require('http').createServer(app);
 var multiparty = require('multiparty'); // -> 处理上传文件(多数据)模块
 var io = require('socket.io').listen(server); // -> ws对象
 var schedule = require("node-schedule"); // -> 定时器对象
+var rakuDatabase = require("./database/raku-database"); // -> test 数据库对象
 var userLogin = require('./controller/user/LOGIN');
 var userCenter = require('./controller/user/CENTER');
 var Article = require('./controller/articles/ARTICLE');
@@ -24,6 +25,13 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.set('views', __dirname+'/views'); // 设置模板相对路径(相对当前目录)
 app.use(express.static(__dirname + '/public')); // 设置静态文件(相对当前目录)
 app.use(cookieParser());
+
+var myDatabase = [];
+rakuDatabase.init('./database/database.config.json',function(result){
+  myDatabase = result;
+});
+
+
 
 /*** 通用方法 ***/
 Date.prototype.Format = function(format) { //author: meizz
@@ -51,6 +59,8 @@ Date.prototype.Format = function(format) { //author: meizz
 
 
 app.get('/', function (req, res) {
+    myDatabase[0].open();
+    myDatabase[0].connect();
     res.setHeader('Content-Type','text/html;charset=UTF-8');
     //创建连接  
     var data = {
@@ -61,28 +71,13 @@ app.get('/', function (req, res) {
         'videoList' : [] // 视频列表
       }
     };
-    var connection = mysql.createConnection({    
-      host     : '127.0.0.1',      
-      user     : 'root',             
-      password : 'root',      
-      port: '3306',                  
-      database: 'canvas',
-    });
-    connection.connect();
-    // sql query 
-    var articleSelectSql =  'SELECT * FROM node_articles_link';
-    var videoSelectSql = 'SELECT * FROM node_videos_link';
-
     // article list query
     var articleTask = function(callback) {
-      connection.query(articleSelectSql,function (err, result) {
+      myDatabase[0].selectAll('node_articles_link',function (err, result) {
         if(err){
           console.log('[ARTICLE QUERY ERROR] - ',err.message);
           return;
         }   
-        console.log('-------ARTICLE----------');    
-        // console.log('ARTICLES:',result);       
-        console.log('#######################');
         UTIL.dateFom(result,'created_at','YY-MM-dd hh:mm');
         for (var item in result) {
           delete result[item]['content'];
@@ -93,20 +88,16 @@ app.get('/', function (req, res) {
     }
     // video list query
     var videoTask = function(callback) {
-      connection.query(videoSelectSql,function (err, result) {
+      myDatabase[0].selectAll('node_videos_link',function (err, result) {
         if(err){
           console.log('[VIDEO QUERY ERROR] - ',err.message);
           return;
         }  
-
-        console.log('-------VIDEO----------');    
-        // console.log('ARTICLES:',result);       
-        console.log('&&&&&&&&&&&&&&&&&&&&&&&');
         UTIL.dateFom(result,'created_at','YY-MM-dd hh:mm');
         data.hotLists.videoList = result; 
-        connection.end(); 
+        myDatabase[0].close(); 
         res.render('index.jade',data);
-      });
+      })
       callback(null,videoTask);
     } 
     
@@ -148,7 +139,7 @@ app.post('/commit',  urlencodedParser, function (req,res) {
 })
 //  用户个人中心
 app.get('/user_center/:pannel', function (req, res) {
-  userCenter.init(req,res);
+  userCenter.start(req,res);
 })
 // 个人中心/模板/更换模板接口
 app.post('/user_center/temp/select', urlencodedParser, function(req, res) {
@@ -244,6 +235,7 @@ app.get('*', function(req, res) {
     code : '404'
   });
 })
+  
 server.listen(3000, function () {
 
   var host = server.address().address

@@ -12,6 +12,22 @@ $(function () {
         },
         view: function () {
             var self = this;
+            $('canvas').css('display','none');
+            switch (oPageConfig.theme) {
+                case 'ocean' : 
+                    $('#canvas1').css('display','block');
+                    break;
+                case 'hanabi':
+                    $('#canvas2').css('display','block');
+                    break;
+                case 'snow':
+                    $('#canvas3').css('display','block');
+                    break;
+                case 'halloween':
+                    $('#canvas4').css('display','block');
+                    break;
+            }
+            $('#canvas-bg').css('backgroundImage','url("/i/userCenter-bg/'+oPageConfig.temp+'.jpg")');
         },
         listen: function () {
             var self = this;

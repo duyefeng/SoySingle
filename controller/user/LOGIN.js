@@ -17,7 +17,6 @@ app.set('views', __dirname+'/views'); // 设置模板相对路径(相对当前�
 app.use(express.static(__dirname + '/views/public')); // 设置静态文件(相对当前目录)
 app.use(cookieParser());
 
-
 // 注册
 exports.register = function (req, res) {
     var User = {};

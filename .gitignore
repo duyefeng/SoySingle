@@ -2,3 +2,4 @@ node_modules/
 npm-debug.log
 .idea/
 public/v/
+database/node_modules/

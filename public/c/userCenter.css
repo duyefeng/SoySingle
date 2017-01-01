@@ -14,8 +14,8 @@
     height: 100%;
     background-size: 100%;
     background-repeat: no-repeat;
-    fliter:blur(3px);
-    -webkit-filter:blur(3px);
+    fliter:blur(.7px);
+    -webkit-filter:blur(.7px);
     z-index: -1;
     transform-style: preserve-3d;
 }
@@ -113,11 +113,14 @@ a.last-user-center-item {
     float: left;
 }
 .user-center-pannel {
-    width: 700px;
+    width: 790px;
+    height: 700px;
     margin-left: 20px;
     float: left;
     padding: 10px;
-    border: 1px solid #fff;
+    border-radius: 4px;
+    border: 1px solid #e1e2e5;
+    box-shadow: 0 2px 4px rgba(0,0,0,.14);
 }
 .user-center-item a {
     color: #333;
@@ -137,4 +140,118 @@ a.last-user-center-item {
 .user-center-item a.active {
     background: #00A1D7!important;
     color: #fff!important;
+}
+.temeplate-pannel .title {
+    font-family: 'microsoft yahei';
+    color: #fff;
+    text-shadow: 0 0 3px #fff;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.temeplate-pannel .ocean .title {
+    text-shadow: 0 0 3px #0767C8;
+}
+.temeplate-pannel .hanabi .title {
+    text-shadow: 0 0 3px #800000;
+}
+.temeplate-pannel .snow .title {
+    text-shadow: 0 0 3px #fbfbfb;
+}
+.temeplate-pannel .halloween .title {
+    text-shadow: 0 0 3px #8A2BE2;
+}
+.temeplate-pannel .ocean-theme,.temeplate-pannel .hanabi-theme {
+    text-align: center;
+}
+.temeplate-pannel .theme {
+    display: inline-block;
+    position: relative;
+    margin-right: 20px;
+    width: 160px;
+    height: 100px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border:2px solid #fff;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.temeplate-pannel .theme.current {
+    transition: all 0.35s linear;
+    transform: scale(1.1);
+    border: 2px solid #fff;
+    box-shadow: 0 0 10px #00A1D7;
+}
+.temeplate-pannel .theme.current .theme-mask {
+    opacity: 0;
+}
+.temeplate-pannel .theme .theme-mask {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.65);
+    transition: opacity .6s ease-in-out;
+}
+.temeplate-pannel .theme .theme-mask:hover {
+    opacity: 0;
+}
+.temeplate-pannel .theme.current i {
+    position: absolute;
+    right: 10px;
+    font-size: 18px;
+    color: #fff;
+}
+.temeplate-pannel .theme#deepsea1 {
+    background-image: url('/i/userCenter-bg/deepsea1.jpg');
+}
+.temeplate-pannel .theme#deepsea2 {
+    background-image: url('/i/userCenter-bg/deepsea2.jpg');
+}
+.temeplate-pannel .theme#deepsea3 {
+    background-image: url('/i/userCenter-bg/deepsea3.jpg');
+}
+.temeplate-pannel .theme#deepsea4 {
+    background-image: url('/i/userCenter-bg/deepsea4.jpg');
+}
+.temeplate-pannel .theme#hanabi1 {
+    background-image: url('/i/userCenter-bg/hanabi1.jpg');
+}
+.temeplate-pannel .theme#hanabi2 {
+    background-image: url('/i/userCenter-bg/hanabi2.jpg');
+}
+.temeplate-pannel .theme#hanabi3 {
+    background-image: url('/i/userCenter-bg/hanabi3.jpg');
+}
+.temeplate-pannel .theme#hanabi4 {
+    background-image: url('/i/userCenter-bg/hanabi4.jpg');
+}
+.temeplate-pannel .theme#snow1 {
+    background-image: url('/i/userCenter-bg/snow1.jpg');
+}
+.temeplate-pannel .theme#snow2 {
+    background-image: url('/i/userCenter-bg/snow2.jpg');
+}
+.temeplate-pannel .theme#snow3 {
+    background-image: url('/i/userCenter-bg/snow3.jpg');
+}
+.temeplate-pannel .theme#snow4 {
+    background-image: url('/i/userCenter-bg/snow4.jpg');
+}
+.temeplate-pannel .theme#halloween1 {
+    background-image: url('/i/userCenter-bg/halloween1.jpg');
+}
+.temeplate-pannel .theme#halloween2 {
+    background-image: url('/i/userCenter-bg/halloween2.jpg');
+}
+.temeplate-pannel .theme#halloween3 {
+    background-image: url('/i/userCenter-bg/halloween3.jpg');
+}
+.temeplate-pannel .theme#halloween4 {
+    background-image: url('/i/userCenter-bg/halloween4.jpg');
+}
+#canvas4 {
+    width: 100%;
+    height: 100%;
 }

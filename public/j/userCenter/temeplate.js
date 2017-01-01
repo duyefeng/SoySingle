@@ -1,7 +1,7 @@
 $(function () {
     var ui = {
         $tabItem : $('.user-center-item a'),
-        $button : $('.user-center-pannel button')
+        $theme : $('.user-center-pannel .theme')
     };
     var oPage = {
         data: {
@@ -13,18 +13,22 @@ $(function () {
         init: function () {
             this.view();
             this.listen();
-        },
+        }, 
         view: function () {
+            var selected = document.getElementById(oPageConfig.temp);
+            $(selected).addClass('current');
+            $(selected).append('<i class="icon iconfont">&#xe610;</i>');
         },
         listen: function () {
             var self = this;
-            ui.$button.on('click',function() {
-                self.aniRandom().tempToggle(this.id);
+            ui.$theme.on('click',function() {
+                self.toggleJs(this).addCurrent(this).aniRandom().tempToggle(this.id);
             })
             $('.save').on('click', function() {
                 var params = {
-                    'name' : 123,
-                    'temp' : self.data.temp
+                    'name' : oPageConfig.username,
+                    'temp' : self.data.temp,
+                    'theme' : self.data.theme
                 }
                 self.doAjax({
                     url : '/user_center/temp/select',
@@ -40,6 +44,33 @@ $(function () {
                 })
             })
         },
+        toggleJs: function(ele) {
+            var theme = $(ele).data('theme');
+            if (theme=='deepsea') {
+                $('canvas').css('display','none');
+                $('#canvas1').css('display','block');
+            } else if (theme=='hanabi') {
+                $('canvas').css('display','none');
+                $('#canvas2').css('display','block');
+            } else  if (theme=='snow') {
+                $('canvas').css('display','none');
+                $('#canvas3').css('display','block');
+            } else  if (theme=='halloween') {
+                $('canvas').css('display','none');
+                $('#canvas4').css('display','block');
+            }
+            this.data.theme = theme;
+            return oPage;
+        },
+        addCurrent: function(ele) {
+            var self = this;
+            if ( self.data.canToggle ) return;
+            $('.theme.current i').remove();
+            $('.theme.current').removeClass('current');
+            $(ele).addClass('current');
+            $(ele).append('<i class="icon iconfont">&#xe610;</i>');
+            return oPage;
+        },
         aniRandom: function() {
             var self = this;
             var random = Math.floor(Math.random()*3);
@@ -51,21 +82,14 @@ $(function () {
             var self = this;
             if ( self.data.canToggle ) return;
             self.data.canToggle = true;
-            self.data.temp = arg;         
-            var image = new Image();
-            image.src = "/i/userCenter-bg/"+self.data.temp+".jpg";
-            image.onload = function() {
-                $('#canvas-bg').css('backgroundImage','url("'+image.src+'")');
-                $('#canvas-bg').addClass(self.data.ani);
-                setTimeout(function(){
-                    $('#canvas-bg').removeClass(self.data.ani);
-                    self.data.canToggle = false;
-                },1200);
-            }
-            image.onerror = function() {
-                alert('对不起，似乎图片出错了！');
-                ui.$button.data('toggle',false);
-            }
+            self.data.temp = arg; 
+            var src =  "/i/userCenter-bg/"+self.data.temp+".jpg";
+            $('#canvas-bg').css('backgroundImage','url("'+src+'")');
+            $('#canvas-bg').addClass(self.data.ani);
+            setTimeout(function(){
+                $('#canvas-bg').removeAttr("class");
+                self.data.canToggle = false;
+            },1000);
         },
         doAjax: function(options) {
           $.ajax({

@@ -1,5 +1,4 @@
-(function() {
-
+(function () {
     var width, height, largeHeader, canvas, ctx, circles, target, animateHeader = true;
 
     // Main
@@ -11,14 +10,14 @@
         height = window.innerHeight;
         target = {x: 0, y: height};
 
-        canvas = document.getElementById('canvas');
+        canvas = document.getElementById('canvas1');
+        ctx = canvas.getContext('2d');
         canvas.width = width;
         canvas.height = height;
-        ctx = canvas.getContext('2d');
 
         // create particles
         circles = [];
-        for(var x = 0; x < width*0.05; x++) {
+        for(var x = 0; x < width*0.1; x++) {
             var c = new Circle();
             circles.push(c);
         }
@@ -60,8 +59,8 @@
         function init() {
             _this.pos.x = Math.random()*width;
             _this.pos.y = height+Math.random()*100;
-            _this.alpha = 0.1+Math.random()*0.3;
-            _this.scale = 0.1+Math.random()*0.4;
+            _this.alpha = 0.2+Math.random()*0.3;
+            _this.scale = 0.2+Math.random()*0.4;
             _this.velocity = Math.random();
         }
 
@@ -72,15 +71,13 @@
             _this.pos.y -= _this.velocity;
             _this.alpha -= 0.0001;
             ctx.beginPath();
-            ctx.shadowColor = "RGBA(127,127,127,1)";
+            ctx.shadowColor = "RGBA(255,255,255,1)";
             ctx.shadowOffsetX = 0;
-            ctx.shadowOffsetY = 0;
+            ctx.shadowOffsetY = 2;
             ctx.shadowBlur = 15;
             ctx.arc(_this.pos.x, _this.pos.y, _this.scale*30, 0, 2 * Math.PI, false);
             ctx.strokeStyle = 'rgba(255,255,255,'+ _this.alpha+')';
             ctx.stroke();
-            // ctx.fill();
         };
     }
-
 })();
