@@ -150,7 +150,7 @@
         var padding = option.isCreate ? '2px 4px' : '0';
         option.isCreate = false;
         option.left = this.elementX+10+'px';
-        var fontSize = option.size == 'normal' ? '24px' : '28px';
+        var fontSize = option.size == 'normal' ? '20px' : '24px';
         switch (option.type) {
             case 'normal' :
                 var $div = $('<div class="danmaku" data-speed="7.09701" style="padding: '+padding+';border: '+border+';left: '+option.left+'; top: '+option.position+'px; color: '+option.color+'; font-size:'+fontSize+'; opacity: '+this.opacity+'; transform: translateX(0px); transition: -webkit-transform 7.09701s linear;">'+option.content+'</div>');

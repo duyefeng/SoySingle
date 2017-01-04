@@ -19,6 +19,13 @@ $(function () {
         },
         view: function () {
             var self = this;
+            $.fn.extend({
+                posEmpty : function() {
+                    // this jquery obj
+                    console.log(this.parent().children());
+                }
+            })
+            ui.$dmkul.posEmpty();
         },
         listen: function () {
             var self = this;
@@ -37,7 +44,7 @@ $(function () {
                     console.log('error');
                 }
             })
-            var socket = io.connect('http://192.168.137.39:3000');
+            var socket = io.connect('http://127.0.0.1:3000');
             socket.on('connect', function(){
                 socket.emit("userLogin", {
                     'username' : oPageConfig.username
@@ -48,7 +55,7 @@ $(function () {
                 ui.$onlineNum.html(msg.roomNum);
             })
             socket.on('DmkReturn',function(msg, date) {
-                oPage.data.dmkNum++;
+                oPage.data.dmkNum++;                
                 DanMu.Push(msg);
                 self.listInsert(msg,date);
                 ui.$dmkNum.html(oPage.data.dmkNum);
@@ -102,10 +109,17 @@ $(function () {
         sendDanmaku: function(socket) {
             if (oPageConfig.username == '') return;
             var objectDmk = {};
+            var H = 0; // danmu height
             var txt = document.getElementById("danmu").value.trim();
             if (txt=='') return;
             document.getElementById("danmu").value = '';
             var currentTime = parseInt(player.currentTime);
+            for ( var item in oPage.data.DanMaKuList) {
+                if ( ((oPage.data.DanMaKuList[item].time - currentTime)<2)&&((oPage.data.DanMaKuList[item].time - currentTime)>-2)) {
+                    H += 20;
+                }
+            }
+            console.log(H);
             objectDmk = {
                 'time' : currentTime,
                 'content' : txt,
@@ -114,7 +128,7 @@ $(function () {
                 'size' : 'normal'
             }
             //向服务器发射弹幕对象
-            socket.emit("DmkSend", objectDmk, oPage.data.limitHeight, oPageConfig.username, oPageConfig.videoId);
+            socket.emit("DmkSend", objectDmk, H, oPageConfig.username, oPageConfig.videoId);
         },
         listInsert: function(arg, localTime) {
             var m,s,time;

@@ -43,7 +43,7 @@ div.video
                     each item in list
                         li(data-time= item.originTime) 
                             span.time #{item.time}
-                            span.text #{item.content} 
+                            span.text(title=item.content) #{item.content} 
                             span.send-time #{item.created_at}
     //- div      
     //-     button#shiled 屏蔽弹幕      

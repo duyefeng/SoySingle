@@ -197,11 +197,11 @@ io.sockets.on("connection", function(socket){
       });
       console.log(user + '退出了' + roomID);
     });
-    socket.on('DmkSend', function(data, limitH, name, vid){      
+    socket.on('DmkSend', function(data, H, name, vid){      
       // nowTime => 弹幕生成时间
       var nowTime = UTIL.nowDate();
       // TOP => 弹幕生成位置
-      const TOP =  Math.floor(Math.random()*limitH+20);
+      const TOP =  H;
       data.position = TOP;
       Video.insert(data, name, vid, nowTime);
       var LocalTime = new Date(nowTime*1000).Format('YY-MM-dd hh:mm');

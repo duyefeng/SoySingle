@@ -2,8 +2,8 @@
     padding: 40px;
 }
 #player-video-danmaku {
-    width: 860px;
-    height: 566px;
+    width: 680px;
+    height: 460px;
     position: relative;
     overflow: hidden;
     cursor: pointer;
@@ -36,13 +36,13 @@
     position: absolute;
     top: 0;
     background: #353535;
-    width: 860px;
-    height: 566px;
+    width: 680px;
+    height: 460px;
 }
 #danmaku-list {
     float: left;
     width: 380px;
-    height: 566px;
+    height: 456px;
     padding: 0 0 10px;
     box-shadow: 0 0 4px #008000 inset;
     border-radius: 4px;
@@ -57,7 +57,7 @@
     font-family: 'Microsoft Yahei';
 }
 #danmaku-list ul {
-    height: 480px;
+    height: 380px;
     width: 100%;
     overflow-y: hidden;
     padding-left: 20px;
@@ -136,10 +136,10 @@
 }
 .danmuSend {
     position: relative;
-    width: 860px;
+    width: 680px;
 }
 #danmu {
-    width: 862px;
+    width: 680px;
     height: 38px;
     box-sizing: border-box;
     border: 1px solid #ccc;
