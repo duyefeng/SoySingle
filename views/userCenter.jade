@@ -2,6 +2,10 @@ doctype html
 html
     include includes/head   
     //- link(rel="stylesheet" href="/skin/"+"#{template}"+".css")
+    script.
+        var image = new Image();
+        image.src = "/i/userCenter-bg/hanabi2.jpg";
+        console.log(image);
     link(rel="stylesheet" href="/c/userCenter.css")
     body 
         include includes/banner
